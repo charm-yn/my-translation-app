@@ -20,6 +20,7 @@ st.write("ミャンマー語または日本語を入力して、翻訳先の言�
 source_text = st.text_area("翻訳したいテキストを入力してください")
 target_lang_label = st.selectbox("翻訳先の言語", list(LANG_OPTIONS.keys()))
 
+# --- 翻訳処理 ---
 if st.button("翻訳する") and source_text:
     target_lang = LANG_OPTIONS[target_lang_label]
 
