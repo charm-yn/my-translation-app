@@ -7,6 +7,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 MODEL_NAME = "gemini-3-pro-preview"
 
+
 # --- 言語オプション ---
 LANG_OPTIONS = {
     "日本語 (Japanese)": "Japanese",
