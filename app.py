@@ -1,12 +1,13 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai  # new google-genai library
 
 # --- API設定 ---
-GOOGLE_API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
-genai.configure(api_key=GOOGLE_API_KEY)
+# Streamlit Secrets から API キーを読み込む
+API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
 
-# 無料枠が使いやすいモデル
-MODEL_NAME = "gemini-1.5-flash"
+client = genai.Client(api_key=API_KEY)
+
+MODEL_NAME = "gemini-3-pro-preview"  # or change later if you want Flash
 
 # --- 言語オプション ---
 LANG_OPTIONS = {
@@ -27,13 +28,16 @@ if st.button("翻訳する") and source_text:
 
     prompt = (
         f"Translate the following text into {target_lang}. "
-        "Only output the translation.\n\n"
+        "Only output the translation, with no explanation.\n\n"
         f"Text:\n{source_text}"
     )
 
     with st.spinner("翻訳中..."):
-        model = genai.GenerativeModel(MODEL_NAME)
-        response = model.generate_content(prompt)
+        # google-genai のシンプルな呼び方（types は使わない）
+        response = client.models.generate_content(
+            model=MODEL_NAME,
+            contents=prompt,
+        )
         translation = response.text
 
     st.subheader("翻訳結果")
