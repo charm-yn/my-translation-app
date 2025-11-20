@@ -3,10 +3,14 @@ import google.generativeai as genai
 
 # --- API設定 ---
 GOOGLE_API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
+
+# ここはシンプルに。api_version や client_options は書かない
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# AI Studio の google-generativeai のコードからコピペしたモデル名にする
-# 例: "gemini-1.5-flash" または "gemini-1.5-flash-latest"
+# ★★ 重要 ★★
+# model 名に "models/" を付けないこと！
+# AI Studio の「Get code → Python → google-generativeai」の例では
+# だいたい "gemini-1.5-flash" か "gemini-1.5-flash-latest" になっています。
 MODEL_NAME = "gemini-1.5-flash"
 
 # --- 言語オプション ---
@@ -33,7 +37,6 @@ if st.button("翻訳する") and source_text:
     )
 
     with st.spinner("翻訳中..."):
-        # AI Studio のコードと同じ使い方
         model = genai.GenerativeModel(MODEL_NAME)
         response = model.generate_content(prompt)
         translation = response.text
