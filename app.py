@@ -7,7 +7,7 @@ API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
 
 client = genai.Client(api_key=API_KEY)
 
-MODEL_NAME = "gemini-3-pro-preview"  # or change later if you want Flash
+MODEL_NAME = "gemini-1.5-flash"  # or change later if you want Flash
 
 # --- 言語オプション ---
 LANG_OPTIONS = {
