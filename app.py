@@ -2,13 +2,13 @@ import streamlit as st
 import google.generativeai as genai
 
 # --- APIキーの設定 ---
-# Streamlit Secrets に保存したキーを読み込む
+# Streamlit Secrets から API キーを読み込む
 GOOGLE_API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# 使用するモデル
-odel = "gemini-3-pro-preview"
-
+# 使用するモデル（AI Studio の「Get code」で確認した名前でもOK）
+model = "gemini-3-pro-preview"
+"
 
 # --- 言語オプション ---
 LANG_OPTIONS = {
@@ -32,7 +32,7 @@ submit_button = st.button("翻訳する")
 if submit_button and source_text:
     target_lang = LANG_OPTIONS[target_lang_label]
 
-    # Gemini への指示文（プロンプト）
+    # Gemini へのプロンプト
     prompt = f"""
     Please translate the following text into {target_lang}.
     Only output the translation, no explanations.
