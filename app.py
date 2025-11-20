@@ -8,7 +8,6 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 # 使用するモデル（AI Studio の「Get code」で確認した名前でもOK）
 model = "gemini-3-pro-preview"
-"
 
 # --- 言語オプション ---
 LANG_OPTIONS = {
