@@ -5,7 +5,8 @@ import google.generativeai as genai
 GOOGLE_API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
 genai.configure(api_key=GOOGLE_API_KEY)
 
-# モデル名（AI Studio の「Gemini Flash Latest → Get code → google-generativeai」で確認）
+# AI Studio の google-generativeai のコードからコピペしたモデル名にする
+# 例: "gemini-1.5-flash" または "gemini-1.5-flash-latest"
 MODEL_NAME = "gemini-1.5-flash"
 
 # --- 言語オプション ---
@@ -32,6 +33,7 @@ if st.button("翻訳する") and source_text:
     )
 
     with st.spinner("翻訳中..."):
+        # AI Studio のコードと同じ使い方
         model = genai.GenerativeModel(MODEL_NAME)
         response = model.generate_content(prompt)
         translation = response.text
