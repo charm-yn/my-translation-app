@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 
 # --- API設定 ---
-GOOGLE_API_KEY = "AIzaSyCl0rWOt3JagpopfxNoeJjwsIg5dbdaSHw"
+GOOGLE_API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # 無料枠が使いやすいモデル
