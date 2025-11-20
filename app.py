@@ -1,6 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
-from google.genai import types
+
 
 # --- API設定 ---
 GOOGLE_API_KEY = "AIzaSyCl0rWOt3JagpopfxNoeJjwsIg5dbdaSHw"
