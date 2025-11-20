@@ -9,6 +9,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 # 使用するモデル（AI Studio の「Get code」で確認した名前でもOK）
 model = "gemini-3-pro-preview"
 
+
 # --- 言語オプション ---
 LANG_OPTIONS = {
     "日本語 (Japanese)": "Japanese",
@@ -16,7 +17,8 @@ LANG_OPTIONS = {
 }
 
 # --- UI 部分 ---
-st.title("みんなでつくるAI翻訳アプリ")
+st.title("ミャンマー語 ⇄ 日本語 翻訳アプリ")
+st.write("上のボックスにミャンマー語または日本語を入力して、翻訳先の言語を選んでください。")
 
 source_text = st.text_area("翻訳したいテキストを入力してください")
 
@@ -25,20 +27,16 @@ target_lang_label = st.selectbox(
     list(LANG_OPTIONS.keys())
 )
 
-submit_button = st.button("翻訳する")
-
 # --- ボタンが押された後の処理 ---
-if submit_button and source_text:
+if st.button("翻訳する") and source_text:
     target_lang = LANG_OPTIONS[target_lang_label]
 
-    # Gemini へのプロンプト
-    prompt = f"""
-    Please translate the following text into {target_lang}.
-    Only output the translation, no explanations.
-
-    Text:
-    {source_text}
-    """
+    # Gemini へのプロンプト（改行でつないでいるので SyntaxError が出にくい書き方）
+    prompt = (
+        f"Translate the following text into {target_lang}. "
+        "Only output the translation, no explanations.\n\n"
+        f"Text:\n{source_text}"
+    )
 
     with st.spinner("翻訳中..."):
         response = model.generate_content(prompt)
