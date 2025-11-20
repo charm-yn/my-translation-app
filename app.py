@@ -11,7 +11,8 @@ genai.configure(api_key=GOOGLE_API_KEY)
 # model 名に "models/" を付けないこと！
 # AI Studio の「Get code → Python → google-generativeai」の例では
 # だいたい "gemini-1.5-flash" か "gemini-1.5-flash-latest" になっています。
-MODEL_NAME = "gemini-1.5-flash"
+MODEL_NAME = "gemini-3-pro-preview"
+
 
 # --- 言語オプション ---
 LANG_OPTIONS = {
