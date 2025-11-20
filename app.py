@@ -7,7 +7,7 @@ GOOGLE_API_KEY = "AIzaSyC4_fx7Im0WyefunWzjIeFx8wkD7_p5H8A"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # 使用するモデル
-model = genai.GenerativeModel("gemini-1.5-flash-latest")
+odel = "gemini-3-pro-preview"
 
 
 # --- 言語オプション ---
